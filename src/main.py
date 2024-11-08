@@ -1,3 +1,4 @@
+import time
 from filters.download_data import download_issuer_codes
 from filters.check_latest_data import check_latest_data
 from filters.fill_missing_data import fill_missing_data
@@ -34,4 +35,15 @@ def main():
 
 
 if __name__ == "__main__":
+
+    # Start timer
+    start_time = time.time()
+
     main()
+
+    # End timer
+    end_time = time.time()
+
+    # Calculate and print the elapsed time
+    elapsed_time = end_time - start_time
+    print(f"\nPipeline completed in {elapsed_time:.2f} seconds.")
