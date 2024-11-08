@@ -12,7 +12,7 @@ def check_latest_data(issuer_code):
 
     Returns:
         tuple: ("Data Found", latest_date) if data exists,
-               ("No Data", None) if the file is missing,
+               ("No Data", None) if the file is missing or empty,
                ("Corrupted Data", None) if the file is corrupted.
     """
     # Path to the data file for the given issuer code
@@ -27,10 +27,10 @@ def check_latest_data(issuer_code):
         with open(data_file, 'r') as file:
             data = json.load(file)
 
-        # Ensure data is a list of dictionaries
-        if not isinstance(data, list):
-            print(f"Unexpected data format in {data_file}: Expected a list of entries.")
-            return "Corrupted Data", None
+        # Ensure data is a list and has at least one entry with a 'date' key
+        if not isinstance(data, list) or not any('date' in entry for entry in data):
+            print(f"File {data_file} is empty or missing date entries.")
+            return "No Data", None
 
         # Find the latest date in the data entries
         latest_date = max(

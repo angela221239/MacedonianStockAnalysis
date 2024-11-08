@@ -6,6 +6,11 @@ import os
 
 
 def fill_missing_data(issuer_code, last_date):
+    # Ignore issuer codes with numbers
+    if any(char.isdigit() for char in issuer_code):
+        print(f"Ignoring issuer code with numbers: {issuer_code}")
+        return
+
     # Determine the start date for data retrieval
     if last_date is None:
         # Calculate a date 10 years back from today

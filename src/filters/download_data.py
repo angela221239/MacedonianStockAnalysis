@@ -15,11 +15,11 @@ def download_issuer_codes():
         # Parse the HTML content
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # Extract issuer codes from dropdown options (adjust tag/attributes as needed)
+        # Extract issuer codes from dropdown options, ignoring any with numbers
         issuer_codes = [
             option.text.strip()
             for option in soup.find_all('option')
-            if not option.text.isnumeric() and option.text.strip()
+            if not any(char.isdigit() for char in option.text)  # Exclude codes with numbers
         ]
 
         # Check if any issuer codes were found
@@ -28,7 +28,7 @@ def download_issuer_codes():
             return []
 
         # Print the issuer codes for testing
-        print("Issuer Codes:", issuer_codes)
+        print("Filtered Issuer Codes:", issuer_codes)
 
         # Save issuer codes to a JSON file for persistence
         save_issuer_codes(issuer_codes)
