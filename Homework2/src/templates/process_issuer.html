@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Process Issuer</h2>
+    <form method="POST">
+        <label for="issuer_code">Issuer Code:</label>
+        <input type="text" id="issuer_code" name="issuer_code" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p>{{ message }}</p>
+{% endblock %}
