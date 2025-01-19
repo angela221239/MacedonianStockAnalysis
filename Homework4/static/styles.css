@@ -5,7 +5,7 @@ body {
     background-color: #f4f4f9;
 }
 
-.login-container, .dashboard-container {
+.login-container {
     width: 400px;
     margin: 50px auto;
     background: white;
@@ -14,8 +14,30 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 h2, h1 {
     text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.user-info {
+    font-size: 14px;
+    color: #555;
+    text-align: right;
 }
 
 form {
@@ -39,17 +61,44 @@ input {
     width: 100%;
 }
 
+.nav-buttons {
+    margin-bottom: 30px; /* Add space between buttons and table */
+    display: flex;
+    gap: 15px; /* Spacing between buttons */
+}
+
 button {
-    background: #007bff;
+    display: inline-block;
+    background-color: #007bff;
     color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 50px; /* Makes the buttons fully rounded */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
 }
 
 button:hover {
-    background: #0056b3;
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Makes shadow stronger on hover */
+
+}
+
+.logout {
+    background-color: #ff4d4d;
+}
+
+.logout:hover {
+    background-color: #cc0000;
+}
+
+/* Table Section */
+.table-container {
+    overflow-x: auto;
+    margin-top: 10px;
 }
 
 table {
@@ -67,6 +116,32 @@ th, td {
 th {
     background: #007bff;
     color: white;
+    font-weight: bold;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .button {
+        width: 100%; /* Full-width buttons for smaller screens */
+        text-align: center;
+    }
 }
 
 .error {

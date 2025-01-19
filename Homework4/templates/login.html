@@ -9,9 +9,6 @@
 <body>
 <div class="login-container">
     <h2>Login</h2>
-    {% if error %}
-    <p class="error">{{ error }}</p>
-    {% endif %}
     <form action="/login" method="post">
         <div class="form-group">
             <label for="username">Username:</label>
@@ -23,6 +20,9 @@
         </div>
         <button type="submit">Login</button>
     </form>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
     <p>Don't have an account? <a href="/signup">Sign Up</a></p>
 </div>
 </body>

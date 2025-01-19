@@ -1,3 +1,4 @@
+<!-- templates/dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,28 +9,39 @@
 </head>
 <body>
 <div class="dashboard-container">
-    <h1>Stock Dashboard</h1>
-    <form method="POST" action="/dashboard">
-        <label for="issuer_code">Filter by Issuer Code:</label>
-        <input type="text" id="issuer_code" name="issuer_code">
-        <button type="submit">Filter</button>
-    </form>
-    <table>
-        <thead>
-        <tr>
-            <th>Issuer Code</th>
-            <th>Data</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for issuer, data in data.items() %}
-        <tr>
-            <td>{{ issuer }}</td>
-            <td>{{ data }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="header">
+        <h1>Stock Dashboard</h1>
+        <div class="user-info">
+            Welcome, {{ user['first_name'] }} {{ user['last_name'] }}
+        </div>
+    </div>
+    <div class="nav-buttons">
+        <a href="/run_pipeline" class="button">Run Pipeline</a>
+        <a href="/process_issuer" class="button">Process Issuer</a>
+        <a href="/login" class="button logout">Logout</a>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Issuer</th>
+                <th>Date</th>
+                <th>Close</th>
+                <th>Volume</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.issuer }}</td>
+                <td>{{ row.date }}</td>
+                <td>{{ row.close }}</td>
+                <td>{{ row.volume }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
