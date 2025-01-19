@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="dashboard-container">
+    <h1>Stock Dashboard</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Close</th>
+            <th>SMA_20</th>
+            <th>EMA_20</th>
+            <th>RSI_14</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for stock in stock_data %}
+        <tr>
+            <td>{{ stock.Date }}</td>
+            <td>{{ stock.Close }}</td>
+            <td>{{ stock.SMA_20 }}</td>
+            <td>{{ stock.EMA_20 }}</td>
+            <td>{{ stock.RSI_14 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
