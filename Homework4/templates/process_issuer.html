@@ -1,0 +1,24 @@
+<!-- templates/process_issuer.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Issuer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="issuer-container">
+    <h1>Process Issuer</h1>
+    <form action="/process_issuer" method="post">
+        <label for="issuer_code">Enter Issuer Code:</label>
+        <input type="text" id="issuer_code" name="issuer_code" required>
+        <button type="submit">Submit</button>
+    </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+    <a href="/">Go Back Home</a>
+</div>
+</body>
+</html>

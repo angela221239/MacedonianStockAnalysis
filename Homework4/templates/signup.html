@@ -14,6 +14,14 @@
   {% endif %}
   <form action="/signup" method="post">
     <div class="form-group">
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" name="first_name" required>
+    </div>
+    <div class="form-group">
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" name="last_name" required>
+    </div>
+    <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
     </div>
@@ -27,7 +35,7 @@
     </div>
     <button type="submit">Sign Up</button>
   </form>
-  <p>Already have an account? <a href="/login">Log in</a></p>
+  <p>Already have an account? <a href="/login">Login</a></p>
 </div>
 </body>
 </html>
