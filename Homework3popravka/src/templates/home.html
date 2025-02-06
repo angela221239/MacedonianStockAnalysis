@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macedonian Stock Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        input, select, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to the Macedonian Stock Analysis</h1>
+
+<form action="/process_request" method="post">
+    <label for="issuer_code">Enter Issuer Code:</label>
+    <input type="text" id="issuer_code" name="issuer_code" required>
+
+    <br>
+
+    <label for="analysis_type">Select Analysis Type:</label>
+    <select id="analysis_type" name="analysis_type" required>
+        <option value="technical">Technical Analysis</option>
+        <option value="fundamental">Fundamental Analysis</option>
+        <option value="lstm">Stock Price Prediction (LSTM)</option>
+    </select>
+
+    <br>
+
+    <label for="text_input">For Sentiment Analysis (Optional):</label>
+    <input type="text" id="text_input" name="text_input" placeholder="Enter text for fundamental analysis">
+
+    <br>
+
+    <button type="submit">Analyze</button>
+</form>
+</body>
+</html>
